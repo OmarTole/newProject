@@ -1,72 +1,35 @@
-const personalPlanPeter = {
-    name: "Peter",
-    age: "29",
-    skills: {
-        languages: ['ru', 'eng', 'kz'],
-        programmingLangs: {
-            js: '20%',
-            php: '10%',
-            python: '40%',
-        },
-        exp: '1 month'
-    },
-    showAgeAndLangs: () => {
-        let {age} = personalPlanPeter;
-        let {languages} = personalPlanPeter['skills'];
-        let result = `Мне ${age} и я владею языками: `
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam', 'Somebody'];
 
-        for(let item of languages) {
-            result += `${item} `.toUpperCase()
+function sortStudentsByGroups(arr) {
+
+    let groupSort = []
+    let group = []
+    let j = 0;
+    arr.sort()
+
+    for (let i = 0; i < arr.length; i++) {
+        groupSort[j] = arr[i];
+        j++;
+        if (groupSort.length == 3) {
+            group[group.length] = groupSort;
+            
+            groupSort = [];
+            j = 0
         }
+        
 
-        return result;
-    }
-};
-
-console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
-
-
-// function showExperience(plan) {
-    
-//     let {exp} = personalPlanPeter['skills'];
-
-//     console.log(exp);
-    
-// }
-// showExperience(personalPlanPeter)
-
-function showProgrammingLangs(plan) {
-    let {programmingLangs} = personalPlanPeter['skills']
-    let result = ''
-    for (let key in programmingLangs) {
-        result += `Язык ${key} изучен на ${programmingLangs[key]} \n`
     }
 
-    return result
+    if (groupSort.length == 0) {
+        group.push('Оставшиеся студенты: - ')
+        return group
+    } else {
+        group.push(`Оставшиеся студенты: ${groupSort}`)
+        return group
+    }
+
+
 }
 
-console.log(showProgrammingLangs(personalPlanPeter));
-
-
-
-const baseCurrencies = ['USD', 'EUR'];
-const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
-
-let arr = [...baseCurrencies, ...additionalCurrencies];
-
-function availableCurr(arr, missingCurr) {
-    let result = 'Доступные валюты:'
-    for (let item of arr) {
-        if (missingCurr != item) {
-            result += `\n ${item}`
-        }
-    }
-
-    return result;
-}
-
-console.log(availableCurr(arr, 'CNY'));
-
-
-
+console.log(sortStudentsByGroups(students));
 

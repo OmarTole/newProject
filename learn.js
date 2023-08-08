@@ -95,74 +95,86 @@
 
 // Задания с рекурсиями
 
-let students = {
-    js: [{
-        name: 'John',
-        progress: 100
-    }, {
-        name: 'Ivan',
-        progress: 60
-    }],
+// let students = {
+//     js: [{
+//         name: 'John',
+//         progress: 100
+//     }, {
+//         name: 'Ivan',
+//         progress: 60
+//     }],
 
-    html: {
-        basic: [{
-            name: 'Peter',
-            progress: 20
-        }, {
-            name: 'Ann',
-            progress: 18
-        }],
+//     html: {
+//         basic: [{
+//             name: 'Peter',
+//             progress: 20
+//         }, {
+//             name: 'Ann',
+//             progress: 18
+//         }],
 
-        pro: [{
-            name: 'Sam',
-            progress: 10
-        }]
-    }
-};
+//         pro: [{
+//             name: 'Sam',
+//             progress: 10
+//         }]
+//     }
+// };
 
-console.log(Object.values(students));
+// console.log(Object.values(students));
 
-function getTotalProgressByRecursion(data) {
-    if (Array.isArray(data)) {
-        let total = 0;
+// function getTotalProgressByRecursion(data) {
+//     if (Array.isArray(data)) {
+//         let total = 0;
 
-        for (let i = 0; i < data.length; i++) {
-            total += data[i].progress;
-        }
+//         for (let i = 0; i < data.length; i++) {
+//             total += data[i].progress;
+//         }
 
 
-        return [total, data.length];
-    } else {
-        let total = [0, 0];
+//         return [total, data.length];
+//     } else {
+//         let total = [0, 0];
 
-        for (let subData of Object.values(data)) {
-            const subDataArr = getTotalProgressByRecursion(subData);
-            total[0] += subDataArr[0];
-            total[1] += subDataArr[1];
-        }
+//         for (let subData of Object.values(data)) {
+//             const subDataArr = getTotalProgressByRecursion(subData);
+//             total[0] += subDataArr[0];
+//             total[1] += subDataArr[1];
+//         }
 
-        return total;
-    }
-}
+//         return total;
+//     }
+// }
 
-const result = getTotalProgressByRecursion(students);
+// const result = getTotalProgressByRecursion(students);
 
-console.log(result);
+// console.log(result);
 
-// Формула факториала
+// // Формула факториала
 
-const factorial = (n) => {
-    if (typeof(n) !== 'number' || !Number.isInteger(n)) {
-        return "Ошибка, проверьте данные";
-    }
+// const factorial = (n) => {
+//     if (typeof(n) !== 'number' || !Number.isInteger(n)) {
+//         return "Ошибка, проверьте данные";
+//     }
 
-    if (n === 0) {
-      return 1;
-    } else {
-      return n * factorial(n - 1);
-    }
-  }
+//     if (n === 0) {
+//       return 1;
+//     } else {
+//       return n * factorial(n - 1);
+//     }
+//   }
   
-const answer = factorial('');
+// const answer = factorial('');
 
-console.log(answer);
+// console.log(answer);
+
+// let arr = [5, 24, 100, 44, 23, 7];
+
+// function sortArr(numArr) {
+//     numArr.sort((a, b) => {
+//         return a - b;
+//         })
+
+//     return numArr
+// }
+
+// console.log(sortArr(arr));

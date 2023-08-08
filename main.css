@@ -1,9 +1,25 @@
 .red {
-    background-color: aqua;
+    background-color: red;
 }
 
 .move {
     width: 250px;
     height: 250px;
     border-radius: 1px solid black;
+}
+
+.btn-block {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: green;
+    width: 1400px;
+    height: 100px;
+}
+
+button {
+    margin: 0 10px;
+    width: 100px;
+    height: 25px;
+    background-color:aqua;
 }

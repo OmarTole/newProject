@@ -85,6 +85,8 @@
 // personalMovieDB.forEach();
 
 let btns = document.querySelector('.move')
+let wrapper = document.querySelector('.btn-block')
+let btnAll = document.querySelectorAll('.btn-block button')
 
 btns.addEventListener('click', () => {
     // if (!btns.classList.contains('red')) {
@@ -95,6 +97,23 @@ btns.addEventListener('click', () => {
 
     btns.classList.toggle('red')
 })
+
+// wrapper.addEventListener('click', (event) => {
+//     if (event.target && event.target.tagName == "BUTTON") {
+//         console.log('Hello');
+//     }
+// })
+
+let btn = document.createElement('button');
+btn.classList.add('red')
+wrapper.append(btn);
+
+btnAll.forEach(btn => {
+    btn.addEventListener('click', () => {
+        console.log('Hello');
+    })
+})
+
 
 
 

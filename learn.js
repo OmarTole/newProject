@@ -1,21 +1,16 @@
-const box = document.querySelector('.box');
-const btn = document.querySelector('.btn');
+'use strict'
 
+class MyNewClass {
+    constructor(height, width) {
+        this.height = height;
+        this.width = width;
+    }
 
-function myAnimation() {
-    let poll = 0;
-
-    const id = setInterval(goBox, 10);
-    function goBox() {
-        if (poll == 300) {
-            clearInterval(id);
-        } else {
-            poll++
-            box.style.top = poll + 'px';
-            box.style.left = poll + 'px';
-        }
-    }    
+    calcArea() {
+        return this.height * this.width;
+    }
 }
 
+const square = new MyNewClass(10, 10);
 
-btn.addEventListener('click', myAnimation)
+console.log(square.calcArea());

@@ -1,16 +1,21 @@
 'use strict'
 
-class MyNewClass {
-    constructor(height, width) {
-        this.height = height;
-        this.width = width;
-    }
+const inputTNG = document.querySelector('.tng'),
+      inputUSD = document.querySelector('.usd');
 
-    calcArea() {
-        return this.height * this.width;
-    }
-}
+inputTNG.addEventListener('input', () => {
+    const request = new XMLHttpRequest();
 
-const square = new MyNewClass(10, 10);
+    request.open('GET', 'current.json');
+    request.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+    request.send();
 
-console.log(square.calcArea());
+    request.addEventListener('load', () => {
+        const data = JSON.parse(request.response);
+        if (request.status === 200) {
+            inputUSD.value = (inputTNG.value / data.current.usd).toFixed(2);
+        } else {
+            inputUSD.value = 'Что-то пошло не так!'
+        }
+    })
+})
